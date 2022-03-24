@@ -1,7 +1,7 @@
 import React from "react";
 import { aumentar, disminuir } from "../../actions";
 import { connect } from "react-redux";
-import reducers from "../../reducers";
+//import reducers from "../../reducers";
 
 const mapStateToProps  = (state) =>{
     return{
@@ -20,4 +20,4 @@ const Contador = (aumentar, disminuir, contador) => {
   );
 };
 
-export default connect(mapStateToProps(),{aumentar, disminuir})(Contador(aumentar, disminuir, mapStateToProps(reducers)));
+export default connect(mapStateToProps(),{aumentar, disminuir})(Contador);
