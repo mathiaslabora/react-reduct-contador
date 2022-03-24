@@ -1,23 +1,24 @@
 import React from "react";
-import { aumentar, disminuir } from "../../actions";
+
 import { connect } from "react-redux";
-//import reducers from "../../reducers";
+import CounterActions from '../../actions/index'
+//import { useSelector, useDispatch } from "react-redux";
 
-const mapStateToProps  = (state) =>{
-    return{
-        contador: state.contador.contador,
-    }
-}
+const Contador = ({ counter, incrementarContador, decrementarContador }) => (
+  <header>
+    <div>{counter.count}</div>
+    <button onClick={()=>incrementarContador()} >Incrementar</button>
+    <button onClick={()=>decrementarContador()} >Decrementar</button>
+  </header>
+)
+
+const mapStateToProps = ({counter}) => ({
+  counter,
+})
+
+const mapDispatchToProps = () => ({
+  ...CounterActions,
+})
 
 
-const Contador = (aumentar, disminuir, contador) => {
-  return (
-    <>
-      <h1>{contador}</h1>
-      <button onClick={() => aumentar()}>Aumenta en 1</button>
-      <button onClick={() => disminuir()}>Disminuye en 1</button>
-    </>
-  );
-};
-
-export default connect(mapStateToProps(),{aumentar, disminuir})(Contador);
+export default connect(mapStateToProps,mapDispatchToProps())(Contador);

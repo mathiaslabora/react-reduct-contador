@@ -1,16 +1,20 @@
 
-const aumentar = () =>{
-    return {
-        type: "AUMENTAR_TYPE",
-        payload: 1
-    }
+import { counter as CounterTypes } from '../constants/actionTypes'
+
+
+export const incrementarContador = () =>  {
+    return({
+        type: CounterTypes.INCREMENTAR
+    })
 }
 
-const disminuir = () =>{
-    return {
-        type: "DISMINUIR_TYPE",
-        payload: -1
-    }
+export const decrementarContador = () =>  {
+    return({
+        type: CounterTypes.DECREMENTAR
+    })
 }
 
-export {aumentar, disminuir};
+export default{
+    incrementarContador,
+    decrementarContador,
+}

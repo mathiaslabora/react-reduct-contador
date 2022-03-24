@@ -1,12 +1,9 @@
 
-import {createStore, combineReducers} from "redux";
-import reducers from "../reducers";
+import { createStore, combineReducers } from "redux";
 
+import * as reducers from '../reducers'
 
-const combinacionreducers = combineReducers({
-    reducers,
-})
+const rootReducer = combineReducers(reducers)
+const store = createStore(rootReducer)
 
-const store = createStore(combinacionreducers)
-
-export  default store;
+export default store;
